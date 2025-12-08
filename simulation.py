@@ -6,25 +6,27 @@ import matplotlib.pyplot as plt
 def sim(ground_truth, prior, confirmation_multiplier, n_trials=100):
     agent = BiasedBayesianObserver(prior, confirmation_multiplier)
     posterior = []
-    post_error = []
     for _ in range(n_trials):
         prediction = agent.prediction()
         evidence = np.random.binomial(n=1, p=ground_truth)
         agent.observe(evidence, prediction)
         posterior.append(agent.get_posterior())
-        post_error.append(abs(ground_truth - agent.get_posterior()))
-    return np.array(posterior), np.array(post_error)    
+    return np.array(posterior)
 
 if __name__ == "__main__":
     # configuration
     ground_truth = 0.5
     prior= np.array([0,0])
-    confirmation_multiplier = 1
+    confirmation_multiplier = 2
     n_trials = 1000
 
     # run simulation
-    series, error = sim(ground_truth, prior, confirmation_multiplier, n_trials)
+    series = sim(ground_truth, prior, confirmation_multiplier, n_trials)
+    error = np.abs(series - ground_truth)
     print(f"final result: posterior after {n_trials} trials: {series[-1]:.2f}")
-    plt.plot(series)
-    plt.plot(error)
+
+    # plot
+    fig, axes = plt.subplots(2, 1)
+    axes[0].plot(series, color='b')
+    axes[1].plot(error, color='r')
     plt.show()
