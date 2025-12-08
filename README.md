@@ -3,9 +3,11 @@ Modeling confirmation bias by having a "multiplier" for confirming events
 Testing to see if having some kind of bias toward confirming evidence helps an agent converge to the ground truth faster in a short term period
 
 To do:
-decide on different configurations, i.e. which biases to check, how many trials, etc. for experiment
+Decide on different configurations, i.e. which biases to check, how many trials, etc. for experiment
 
-get experiment to save np file of distribution over time for graphing (look at qgpt for that)
+Decide which configuration are required forpaper 
 
-Graph results (consider jupyter notebook for inline matplotlib)
-what needs to be graphed?
+Consider linear drift as opposed to random walk
+
+Graph multiple simulations side by side
+Any other metrics besides MSE? Maybe convergence time within a threshold
