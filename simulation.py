@@ -41,7 +41,7 @@ if __name__ == "__main__":
     prior = np.array([1, 1])
     confirmation_multiplier = 1
     n_trials = 1000
-    drift = 0.005
+    drift = 0.001
 
     # run simulation
     post_series, truth_series = sim(
