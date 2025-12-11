@@ -40,12 +40,12 @@ if __name__ == "__main__":
     ground_truth = 0.5
     prior = np.array([1, 1])
     confirmation_multiplier = 1
-    n_trials = 1000
+    n_flips = 1000
     drift = 0.001
 
     # run simulation
     post_series, truth_series = sim(
-        ground_truth, prior, confirmation_multiplier, n_trials, drift
+        ground_truth, prior, confirmation_multiplier, n_flips, drift
     )
     error_series = np.abs(post_series - truth_series)
 
@@ -62,5 +62,5 @@ if __name__ == "__main__":
 
     ax2.plot(error_series, color="r")
     ax2.set_title("Error over Trials")
-    ax2.hlines(0, 0, n_trials, colors="g", linestyles="dashed")
+    ax2.hlines(0, 0, n_flips, colors="g", linestyles="dashed")
     plt.show()
