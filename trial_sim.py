@@ -39,9 +39,9 @@ if __name__ == "__main__":
     # configuration
     ground_truth = 0.5
     prior = np.array([1, 1])
-    confirmation_multiplier = 1
+    confirmation_multiplier = 3
     n_flips = 1000
-    drift = 0.001
+    drift = 0.005
 
     # run simulation
     post_series, truth_series = sim(
