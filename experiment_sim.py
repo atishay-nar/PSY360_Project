@@ -6,10 +6,10 @@ from trial_sim import sim, mse
 from scipy.stats import sem
 
 # global configurations
-ground_truth = 0.5
+ground_truth = np.random.rand()
 prior = np.array([1.0, 1.0])
-n_flips = 1000
-n_walks = 300
+n_flips = 100
+n_walks = 1000
 
 # different configurations to test
 # tuples of form (multiplier, drift)
@@ -27,7 +27,7 @@ for config in configs:
     mse_log = []
     for _ in range(n_walks):
         post_series, truth_series = sim(
-            ground_truth, prior, mult, n_flips, drift
+            np.random.rand(), prior, mult, n_flips, drift
         )
         mse_log.append(mse(post_series, truth_series))
     avg_mse = np.mean(mse_log)
@@ -53,4 +53,6 @@ for i, drift in enumerate(drift_levels):
     ax[i//2][i%2].set_title(f'Drift = {drift}')
     ax[i//2][i%2].set_xlabel('Confirmation Multiplier')
     ax[i//2][i%2].set_ylabel('Average MSE')
+
+fig.suptitle(f'Average MSE vs Confirmation Multiplier for Different Drift Levels over {n_walks} Trials with {n_flips} Observations each', fontsize=14)
 plt.show()
