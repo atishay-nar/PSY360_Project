@@ -38,7 +38,7 @@ def sim(ground_truth, prior, confirmation_multiplier, n_trials=100, drift=0.0):
 if __name__ == "__main__":
     # configuration
     ground_truth = 0.5
-    prior = np.array([1, 1])
+    prior = np.array([1.0, 1.0])
     confirmation_multiplier = 3
     n_flips = 1000
     drift = 0.005

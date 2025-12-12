@@ -30,7 +30,7 @@ class BiasedBayesianObserver:
         return self.posterior
 
 if __name__ == "__main__":
-    prior = np.array([1, 1])
+    prior = np.array([1.0, 1.0])
     agent = BiasedBayesianObserver(prior)
     print(f"prior: Heads: {prior[1]}, Tails: {prior[0]}")
     print(f"posterior with no observations: {agent.get_posterior()}")

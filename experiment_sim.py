@@ -7,7 +7,7 @@ from scipy.stats import sem
 
 # global configurations
 ground_truth = 0.5
-prior = np.array([1, 1])
+prior = np.array([1.0, 1.0])
 n_flips = 1000
 n_walks = 300
 
