@@ -6,7 +6,7 @@ class BiasedBayesianObserver:
         # we use MAP for our posterior probability estimation. first we initialize with our prior
         self.prior = prior
         self.confirmation_multiplier = confirmation_multiplier
-        self.observations = np.array([0,0])
+        self.observations = np.array([0.0,0.0])
         # case where there is no prior
         if np.sum(prior) == 0:
             self.posterior = 0.5
