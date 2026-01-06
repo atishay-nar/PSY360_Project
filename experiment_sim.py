@@ -6,9 +6,8 @@ from trial_sim import sim, mse
 from scipy.stats import sem
 
 # global configurations
-ground_truth = np.random.rand()
 prior = np.array([1.0, 1.0])
-n_flips = 100
+n_flips = 1000
 n_walks = 1000
 
 # different configurations to test
@@ -37,7 +36,7 @@ for config in configs:
     if drift not in results:
         results[drift] = {}
     results[drift][mult] = (avg_mse, stderr)
-    print(f"Config (mult={mult}, drift={drift}): Avg MSE = {avg_mse:.4f} ± {stderr:.4f}")
+    print(f"Config (mult={mult}, drift={drift}): Avg MSE = {avg_mse:.8f} ± {stderr:.8f}")
 
     
 #plot results

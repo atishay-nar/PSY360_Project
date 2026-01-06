@@ -37,11 +37,11 @@ def sim(ground_truth, prior, confirmation_multiplier, n_trials=100, drift=0.0):
 
 if __name__ == "__main__":
     # configuration
-    ground_truth = 0.5
+    ground_truth =  np.random.rand()
     prior = np.array([1.0, 1.0])
-    confirmation_multiplier = 3
-    n_flips = 1000
-    drift = 0.005
+    confirmation_multiplier = 1.25
+    n_flips = 100
+    drift = 0.0
 
     # run simulation
     post_series, truth_series = sim(
@@ -63,4 +63,6 @@ if __name__ == "__main__":
     ax2.plot(error_series, color="r")
     ax2.set_title("Error over Trials")
     ax2.hlines(0, 0, n_flips, colors="g", linestyles="dashed")
+
+    fig.suptitle(f'Simulation with Confirmation Multiplier={confirmation_multiplier} and Drift={drift} over {n_flips} Observations', fontsize=16)
     plt.show()
